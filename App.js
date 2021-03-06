@@ -1,28 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React,  {useState} from 'react';
+import { Image, View, StyleSheet, Switch } from 'react-native';
 
 export default function App() {
 
-  var testVar = {
-    'key': 'value',
-    'str': 'Tec',
-    'num': 730,
-  };
+  // Switch 
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-  var testVar1 = {
-    'key': 'value',
-    'str': 'tec',
-    'num': 731,
-  };
-
-  var testVar3 = [testVar, testVar1]
-
+  var icon = isEnabled
+  ? require('./assets/perro.jpg')
+  : require('./assets/perro1.jpg');
+  
+  
   return (
+    
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your {testVar3[1].str} app!</Text>
-      <Text>Tipo de Variable: {typeof(testVar3.num)}</Text>
-      <StatusBar style="auto" />
+      <Image 
+        source={{ uri: 'https://image.freepik.com/foto-gratis/retrato-gato-sobre-fondo-blanco_13339-114852.jpg' }} 
+        style={styles.image}
+        />
+      
+      <Switch
+        trackColor={{ false: "#767577", true: "#81b0ff" }}
+        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
+    
     </View>
   );
 }
@@ -33,5 +39,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image:{
+    width: 200, 
+    height:200
   },
 });
