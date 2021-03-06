@@ -4,12 +4,24 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
 
-  var testVar = ['Tec', 'de','Monterrey'];
+  var testVar = {
+    'key': 'value',
+    'str': 'Tec',
+    'num': 730,
+  };
+
+  var testVar1 = {
+    'key': 'value',
+    'str': 'tec',
+    'num': 731,
+  };
+
+  var testVar3 = [testVar, testVar1]
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your {testVar} app!</Text>
-      <Text>Tipo de Variable: {typeof(testVar)}</Text>
+      <Text>Open up App.js to start working on your {testVar3[1].str} app!</Text>
+      <Text>Tipo de Variable: {typeof(testVar3.num)}</Text>
       <StatusBar style="auto" />
     </View>
   );
