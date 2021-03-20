@@ -17,7 +17,7 @@ export default function App() {
     
     <ImageBackground source={ icon } style={styles.container}>
       <Image 
-        source={{ uri: 'https://image.freepik.com/foto-gratis/retrato-gato-sobre-fondo-blanco_13339-114852.jpg' }} 
+        source={{ uri: 'https://www.terranovacnc.com/wp-content/uploads/2018/09/shutterstock_538309816-2048x1365.jpg' }} 
         style={styles.image}
       />
       
